@@ -16,16 +16,24 @@ function TodoMain() {
         })
         setTask('');
     }
+    const deleteItem = (id) => {
+        console.log(id, 'deleted');
+        setTaskArray((prevTasks) => {
+            return prevTasks.filter((arrElement, index) => {
+                return index !== id;
+            })
+        })
+    }
     return (
-        <div>
-            <div>
+        <div className="main_div">
+            <div className="center_div">
                 <h1>Todo List</h1>
                 <input type="text" value={task} placeholder="Add your task" onChange={onTaskChange}/>
-               <button onClick={addTask}>Add Task</button>
+               <button className="newBtn" onClick={addTask}>Add Task</button>
                <ol>
                    {
                        taskArray.map((val, index) => {
-                           return <TodoItem text={val} id={index} />
+                           return <TodoItem text={val} id={index} onSelect={deleteItem}/>
                        })
                    }
                </ol>

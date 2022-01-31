@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import '../App.css';
 import TodoMain from './TodoMain';
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
   return (
     <div className="App">
       Hello Todo List
-      <h1>{currentTime}</h1>
+      <h1 className="clock">{currentTime}</h1>
       <TodoMain />
     </div>
   );
